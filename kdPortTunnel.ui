@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>513</width>
-    <height>262</height>
+    <width>518</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>TCP网络数据转发器</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>9</x>
      <y>9</y>
      <width>497</width>
-     <height>237</height>
+     <height>355</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -45,6 +45,45 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="pb_close_socket">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>关闭</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pb_del_config">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>删除配置</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pb_save_config">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>保存配置</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="pb_clear_info">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -61,7 +100,7 @@
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
+      <item row="2" column="3">
        <layout class="QFormLayout" name="fl_status">
         <property name="fieldGrowthPolicy">
          <enum>QFormLayout::FieldsStayAtSizeHint</enum>
@@ -89,7 +128,7 @@
         </item>
        </layout>
       </item>
-      <item row="0" column="0">
+      <item row="2" column="1">
        <layout class="QFormLayout" name="formLayout">
         <property name="sizeConstraint">
          <enum>QLayout::SetDefaultConstraint</enum>
@@ -106,14 +145,40 @@
         <property name="verticalSpacing">
          <number>6</number>
         </property>
-        <item row="0" column="0">
+        <item row="5" column="0">
+         <widget class="QLabel" name="lb_local_port_2">
+          <property name="text">
+           <string>本地主机</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPlainTextEdit" name="pte_local_host">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="plainText">
+           <string>192.168.43.67</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
          <widget class="QLabel" name="lb_local_port">
           <property name="text">
            <string>监听接口</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="6" column="1">
          <widget class="QPlainTextEdit" name="pte_local_port">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
@@ -132,15 +197,15 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="7" column="0">
          <widget class="QLabel" name="lb_target_addr">
           <property name="text">
            <string>目标地址</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QPlainTextEdit" name="pte_target_addr">
+        <item row="7" column="1">
+         <widget class="QPlainTextEdit" name="pte_target_host">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
             <horstretch>0</horstretch>
@@ -154,18 +219,18 @@
            </size>
           </property>
           <property name="plainText">
-           <string>localhost</string>
+           <string>192.168.1.127</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
+        <item row="8" column="0">
          <widget class="QLabel" name="lb_target_port">
           <property name="text">
            <string>目标端口</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
+        <item row="8" column="1">
          <widget class="QPlainTextEdit" name="pte_target_port">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
@@ -180,11 +245,54 @@
            </size>
           </property>
           <property name="plainText">
-           <string>8080</string>
+           <string>964</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="lb_dev_name">
+          <property name="text">
+           <string>设备名</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPlainTextEdit" name="pte_dev_name">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="plainText">
+           <string/>
           </property>
          </widget>
         </item>
        </layout>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="pb_send">
+        <property name="text">
+         <string>发送</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QListWidget" name="lw_confs"/>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLineEdit" name="le_send">
+        <property name="text">
+         <string>52</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -199,22 +307,5 @@
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>mainWindow</sender>
-   <signal>destroyed()</signal>
-   <receiver>mainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>256</x>
-     <y>130</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>256</x>
-     <y>130</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
